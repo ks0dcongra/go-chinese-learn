@@ -15,8 +15,21 @@ var userList = []pojo.User{}
 
 // GET
 func FindAllUsers(c *gin.Context) {
-	c.JSON(http.StatusOK, userList)
+	// c.JSON(http.StatusOK, userList)
+	users := pojo.FindAllUsers()
+	c.JSON(http.StatusOK,users)
 }
+
+func FindByUserId(c *gin.Context) {
+	user := pojo.FindByUserId(c.Param("id"))
+	if user.Id == 0 {
+		c.JSON(http.StatusNotFound,"Error")
+		return
+	}
+	log.Println("User ->", user)
+	c.JSON(http.StatusOK,user)
+}
+
 // POST
 func PostUser(c *gin.Context){
 	user := pojo.User{}
