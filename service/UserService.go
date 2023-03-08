@@ -1,10 +1,13 @@
 package service
 
 import (
+	"golangAPI/config"
+	"golangAPI/models"
 	"golangAPI/pojo"
 	"log"
 	"net/http"
 	"strconv"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -58,4 +61,31 @@ func PutUser(c *gin.Context){
 	}
 	c.JSON(http.StatusNotFound,"Error")
 
+}
+
+func TestDbGetUsers(c *gin.Context){
+	users := []models.User{}
+	config.DB.Find(&users)
+	c.JSON(http.StatusOK, &users)
+}
+
+func TestDbPostUsers(c *gin.Context){
+	var user models.User
+	c.BindJSON(&user)
+	config.DB.Create(&user)
+	c.JSON(http.StatusOK, &user)
+}
+
+func TestDbDeleteUsers(c *gin.Context){
+	var user models.User
+	config.DB.Where("id = ?",c.Param("id")).Delete(&user)
+	c.JSON(200, &user)
+}
+
+func TestDbPutUsers(c *gin.Context){
+	var user models.User
+	config.DB.Where("id = ?",c.Param("id")).First(&user)
+	c.BindJSON(&user)
+	config.DB.Save(&user)
+	c.JSON(200, &user)
 }

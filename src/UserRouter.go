@@ -7,9 +7,14 @@ import (
 
 func AddUserRouter(r *gin.RouterGroup){
 	user := r.Group("/users")
-	
 	user.GET("/", service.FindAllUsers)
 	user.POST("/", service.PostUser)
 	user.DELETE("/:id", service.DeleteUser)
 	user.PUT("/:id", service.PutUser)
+
+	//youtube course to get/post to connect postgres
+	user.GET("/testdb", service.TestDbGetUsers)
+	user.POST("/testdb", service.TestDbPostUsers)
+	user.DELETE("/testdb/:id", service.TestDbDeleteUsers)
+	user.PUT("/testdb/:id", service.TestDbPutUsers)
 }
