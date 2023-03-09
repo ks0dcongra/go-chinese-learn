@@ -1,0 +1,23 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /v1/users/                --> golangAPI/service.FindAllUsers (5 handlers)
+[GIN-debug] GET    /v1/users/:id             --> golangAPI/service.FindByUserId (5 handlers)
+[GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (5 handlers)
+[GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (5 handlers)
+[GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (5 handlers)
+[GIN-debug] GET    /v1/users/testdb          --> golangAPI/service.TestDbGetUsers (5 handlers)
+[GIN-debug] POST   /v1/users/testdb          --> golangAPI/service.TestDbPostUsers (5 handlers)
+[GIN-debug] DELETE /v1/users/testdb/:id      --> golangAPI/service.TestDbDeleteUsers (5 handlers)
+[GIN-debug] PUT    /v1/users/testdb/:id      --> golangAPI/service.TestDbPutUsers (5 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8000
+[GIN-debug] redirecting request 301: /v1/users/ --> /v1/users/
+[GIN] 2023/03/09 - 13:52:39 | 401 |            0s |             ::1 | GET      "/v1/users/"
+[GIN-debug] redirecting request 301: /v1/users/ --> /v1/users/
+::1 - [2023-03-09 13:53:03.9028214 +0800 CST m=+36.375917901] GET /v1/users/ 200 
+[GIN] 2023/03/09 - 13:53:03 | 200 |    109.3661ms |             ::1 | GET      "/v1/users/"

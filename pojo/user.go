@@ -5,9 +5,12 @@ import (
 	"log"
 )
 
-type User struct {
-	Id       int    `json:UserId`
-	Name     string `json:UserName`
+// TODO
+
+// 如果Model 是 User 在DB 就是Users
+type User struct { 
+	Id       int    `json:UserId` // Id DB: id, UserId DB: user_id
+	Name     string `json:UserName gorm:Colume:username` //可以用`json:UserName gorm:Colume:username`改變搜尋規則
 	Password string `json:UserPassword`
 	Email    string `json:UserEmail`
 
