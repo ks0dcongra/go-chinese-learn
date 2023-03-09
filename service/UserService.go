@@ -2,6 +2,7 @@ package service
 
 import (
 	"golangAPI/config"
+	"golangAPI/middlewares"
 	"golangAPI/models"
 	"golangAPI/pojo"
 	"log"
@@ -84,12 +85,32 @@ func LoginUser(c *gin.Context){
 		c.JSON(http.StatusNotFound, "Error")
 		return
 	}
+	middlewares.SaveSession(c, user.Id)
 	c.JSON(http.StatusOK, gin.H{
 		"message" : "Login Successfully",
 		"User" : user,
+		"Sessions": middlewares.GetSession(c),
 	})
 }
 
+func LogoutUser(c *gin.Context){
+	middlewares.ClearSession(c)
+	c.JSON(http.StatusOK, gin.H{
+		"message" : "Logout Successfully",
+	})
+}
+
+func CheckUserSession(c *gin.Context){
+	sessionId := middlewares.GetSession(c)
+	if sessionId == 0 {
+		c.JSON(http.StatusUnauthorized, "Error")
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"message" : "Check Session Successfully",
+		"User" : middlewares.GetSession(c),
+	})
+}
 
 
 // 以下為英文視頻的Tutorial
