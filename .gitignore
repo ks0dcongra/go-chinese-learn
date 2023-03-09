@@ -1,1 +1,3 @@
+# 忽略 gin.log 檔案
 *.log
+gin.log
