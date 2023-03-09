@@ -10,8 +10,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var userList = []pojo.User{}
-
 // GET
 func FindAllUsers(c *gin.Context) {
 	// c.JSON(http.StatusOK, userList)
@@ -76,6 +74,20 @@ func CreateUserList(c *gin.Context){
 		return
 	}
 	c.JSON(http.StatusOK, users)
+}
+
+func LoginUser(c *gin.Context){
+	name := c.PostForm("name")
+	password := c.PostForm("password")
+	user := pojo.CheckUserPassword(name, password)
+	if user.Id == 0 {
+		c.JSON(http.StatusNotFound, "Error")
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"message" : "Login Successfully",
+		"User" : user,
+	})
 }
 
 
