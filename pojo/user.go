@@ -8,14 +8,10 @@ import (
 
 // 如果Model 是 User 在DB 就是Users
 type User struct {
-	Id int `json:"UserId" binding:"required"`
-	Name string `json:"UserName" binding:"required,gt=4"`
-	Password string `json:"UserPassword" binding:"min=4,max=20,userpasd"`
-	Email    string `json:"UserEmail" binding:"email"`
-	// Id int    
-	// Name     string 
-	// Password string 
-	// Email string 
+	Id int `binding:"required"`
+	Name string `binding:"required,gt=4"`
+	Password string `binding:"min=4,max=20,userpasd"`
+	Email    string `binding:"email"`
 }
 
 type Users struct {
