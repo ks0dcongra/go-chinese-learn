@@ -4,11 +4,14 @@ import (
 	// 前面加點下面的AddUserRouter就不用加上前綴
 	"golangAPI/config"
 	"golangAPI/middlewares"
+	"golangAPI/pojo"
 	"golangAPI/src"
 	"io"
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 )
 
 // 創建Gin Log 日誌
@@ -43,9 +46,16 @@ func main() {
 
 	router := gin.Default()
 
+	// 註冊Validator Func
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("userpasd", middlewares.UserPasd)
+		v.RegisterStructValidation(middlewares.UserList, pojo.Users{})
+	}
+
 	// BasicAuth可以驗證帳號
 	// 設置middlewares，可以將滑鼠停在func上面會注意到他要回傳的東西是handler，所以可以在middlewares對應要回傳的參數。 
-	router.Use(gin.BasicAuth(gin.Accounts{"Tom": "123456"}), middlewares.Logger())
+	// router.Use(gin.BasicAuth(gin.Accounts{"Tom": "123456"}), middlewares.Logger()) 設定Auth
+	router.Use(gin.Recovery(), middlewares.Logger())
 	
 	// 接收群組的方法UserRouter.go裡有RouterGroup
 	config.Connect()

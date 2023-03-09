@@ -6,6 +6,7 @@ import (
 	"golangAPI/pojo"
 	"log"
 	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -65,6 +66,19 @@ func PutUser(c *gin.Context){
 	}
 	c.JSON(http.StatusOK,user)
 }
+
+//CreateUserList 
+func CreateUserList(c *gin.Context){
+	users := pojo.Users{}
+	err := c.BindJSON(&users)
+	if err != nil {
+		c.String(400, "Error%s", err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, users)
+}
+
+
 
 // 以下為英文視頻的Tutorial
 func TestDbGetUsers(c *gin.Context){

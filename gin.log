@@ -9,6 +9,7 @@
 [GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (5 handlers)
 [GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (5 handlers)
 [GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (5 handlers)
+[GIN-debug] POST   /v1/users/more            --> golangAPI/service.CreateUserList (5 handlers)
 [GIN-debug] GET    /v1/users/testdb          --> golangAPI/service.TestDbGetUsers (5 handlers)
 [GIN-debug] POST   /v1/users/testdb          --> golangAPI/service.TestDbPostUsers (5 handlers)
 [GIN-debug] DELETE /v1/users/testdb/:id      --> golangAPI/service.TestDbDeleteUsers (5 handlers)
@@ -17,7 +18,14 @@
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8000
 [GIN-debug] redirecting request 301: /v1/users/ --> /v1/users/
-[GIN] 2023/03/09 - 13:52:39 | 401 |            0s |             ::1 | GET      "/v1/users/"
+::1 - [2023-03-09 16:32:14.6601244 +0800 CST m=+19.665473301] GET /v1/users/ 200 
+[GIN] 2023/03/09 - 16:32:14 | 200 |    157.0055ms |             ::1 | GET      "/v1/users/"
+::1 - [2023-03-09 16:32:16.6027811 +0800 CST m=+21.608130001] POST /v1/users/more 200 
+[GIN] 2023/03/09 - 16:32:16 | 200 |       914.6µs |             ::1 | POST     "/v1/users/more"
 [GIN-debug] redirecting request 301: /v1/users/ --> /v1/users/
-::1 - [2023-03-09 13:53:03.9028214 +0800 CST m=+36.375917901] GET /v1/users/ 200 
-[GIN] 2023/03/09 - 13:53:03 | 200 |    109.3661ms |             ::1 | GET      "/v1/users/"
+::1 - [2023-03-09 16:32:32.2989655 +0800 CST m=+37.304314401] GET /v1/users/ 200 
+[GIN] 2023/03/09 - 16:32:32 | 200 |    108.2725ms |             ::1 | GET      "/v1/users/"
+::1 - [2023-03-09 16:32:39.6697462 +0800 CST m=+44.675095101] DELETE /v1/users/6 404 
+[GIN] 2023/03/09 - 16:32:39 | 404 |    103.6317ms |             ::1 | DELETE   "/v1/users/6"
+::1 - [2023-03-09 16:32:44.9943285 +0800 CST m=+49.999677401] DELETE /v1/users/779 404 
+[GIN] 2023/03/09 - 16:32:44 | 404 |    105.4877ms |             ::1 | DELETE   "/v1/users/779"

@@ -8,17 +8,18 @@ import (
 // TODO
 
 // 如果Model 是 User 在DB 就是Users
-type User struct { 
-	Id       int    `json:UserId` // Id DB: id, UserId DB: user_id
-	Name     string `json:UserName gorm:Colume:username` //可以用`json:UserName gorm:Colume:username`改變搜尋規則
-	Password string `json:UserPassword`
-	Email    string `json:UserEmail`
-
-	// Id   int    
-	// Name string 
-	// Password string 
-	// Email string 
+type User struct {
+	Id       int    `json:"UserId" binding:"required"`
+	Name     string `json:"UserName" binding:"required,gt=4"`
+	Password string `json:"UserPassword" binding:"min=4,max=20,userpasd"`
+	Email    string `json:"UserEmail" binding:"email"`
 }
+
+type Users struct {
+	UserList []User `json:"UserList" binding:"required,gt=0,lt=3"`
+	UserListSize int `json:"UserListSize"`
+}
+
 
 func FindAllUsers() []User {
 	var users []User
@@ -36,6 +37,7 @@ func CreateUser(user User) User{
 	config.DB.Create(&user)
 	return user
 }
+
 
 func DeleteUser(userId string) bool{
 	user := User{}
