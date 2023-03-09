@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+=======
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /v1/users/                --> golangAPI/service.FindAllUsers (6 handlers)
+[GIN-debug] GET    /v1/users/:id             --> golangAPI/service.FindByUserId (6 handlers)
+[GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (6 handlers)
+[GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (6 handlers)
+[GIN-debug] POST   /v1/users/more            --> golangAPI/service.CreateUserList (6 handlers)
+[GIN-debug] POST   /v1/users/login           --> golangAPI/service.LoginUser (6 handlers)
+[GIN-debug] GET    /v1/users/check           --> golangAPI/service.CheckUserSession (6 handlers)
+[GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (7 handlers)
+[GIN-debug] GET    /v1/users/logout          --> golangAPI/service.LogoutUser (7 handlers)
+[GIN-debug] GET    /v1/users/testdb          --> golangAPI/service.TestDbGetUsers (7 handlers)
+[GIN-debug] POST   /v1/users/testdb          --> golangAPI/service.TestDbPostUsers (7 handlers)
+[GIN-debug] DELETE /v1/users/testdb/:id      --> golangAPI/service.TestDbDeleteUsers (7 handlers)
+[GIN-debug] PUT    /v1/users/testdb/:id      --> golangAPI/service.TestDbPutUsers (7 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8000
+::1 - [2023-03-09 19:23:31.1411855 +0800 CST m=+8.913567701] POST /v1/users/login 200 
+[GIN] 2023/03/09 - 19:23:31 | 200 |    154.7638ms |             ::1 | POST     "/v1/users/login"
+::1 - [2023-03-09 19:23:33.1058971 +0800 CST m=+10.878279301] GET /v1/users/logout 200 
+[GIN] 2023/03/09 - 19:23:33 | 200 |       707.5µs |             ::1 | GET      "/v1/users/logout"
+>>>>>>> origin/master
