@@ -13,7 +13,7 @@ func AddUserRouter(r *gin.RouterGroup){
 	user.DELETE("/:id", service.DeleteUser)
 	user.PUT("/:id", service.PutUser)
 
-	//youtube course to get/post to connect postgres
+	// 以下為英文視頻的Tutorial，youtube course to CRUD to connect postgres
 	user.GET("/testdb", service.TestDbGetUsers)
 	user.POST("/testdb", service.TestDbPostUsers)
 	user.DELETE("/testdb/:id", service.TestDbDeleteUsers)
