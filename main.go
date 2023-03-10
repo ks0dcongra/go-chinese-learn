@@ -15,8 +15,8 @@ import (
 )
 
 // 創建Gin Log 日誌
-func setupLogging(){
-	f, _  := os.Create("gin.log")
+func setupLogging() {
+	f, _ := os.Create("gin.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
 }
@@ -40,7 +40,7 @@ func main() {
 	// 		"id": id,
 	// 	})
 	// })
-	
+
 	// 產生Log
 	setupLogging()
 
@@ -53,10 +53,10 @@ func main() {
 	}
 
 	// BasicAuth可以驗證帳號
-	// 設置middlewares，可以將滑鼠停在func上面會注意到他要回傳的東西是handler，所以可以在middlewares對應要回傳的參數。 
+	// 設置middlewares，可以將滑鼠停在func上面會注意到他要回傳的東西是handler，所以可以在middlewares對應要回傳的參數。
 	// router.Use(gin.BasicAuth(gin.Accounts{"Tom": "123456"}), middlewares.Logger()) 設定Auth
 	router.Use(gin.Recovery(), middlewares.Logger())
-	
+
 	// 接收群組的方法UserRouter.go裡有RouterGroup
 	config.Connect()
 	v1 := router.Group("/v1")
