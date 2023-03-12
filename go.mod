@@ -11,12 +11,21 @@ require (
 )
 
 require (
+	github.com/golang-migrate/migrate v3.5.4+incompatible // indirect
+	github.com/hashicorp/errwrap v1.1.0 // indirect
+	github.com/hashicorp/go-multierror v1.1.1 // indirect
+	github.com/lib/pq v1.10.3 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+)
+
+require (
 	github.com/bytedance/sonic v1.8.3 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
+	github.com/golang-migrate/migrate/v4 v4.15.2
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/gorilla/securecookie v1.1.1 // indirect
 	github.com/gorilla/sessions v1.2.1 // indirect
