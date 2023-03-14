@@ -11,11 +11,8 @@ require (
 )
 
 require (
-	github.com/golang-migrate/migrate v3.5.4+incompatible // indirect
-	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-multierror v1.1.1 // indirect
-	github.com/lib/pq v1.10.3 // indirect
-	go.uber.org/atomic v1.7.0 // indirect
+	github.com/google/go-cmp v0.5.6 // indirect
+	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 )
 
 require (
@@ -25,7 +22,6 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
-	github.com/golang-migrate/migrate/v4 v4.15.2
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/gorilla/securecookie v1.1.1 // indirect
 	github.com/gorilla/sessions v1.2.1 // indirect
